@@ -19,6 +19,27 @@ Everything is **code that Strudel plays live in your browser** using recordings 
 - **Strain:** only the first two notes, then nothing. It stays incomplete.
 - **Reconnection:** the full motif again, now ending on the home note. Aim for a modest lift, not a triumph.
 
+### Variants guided by reference tracks
+
+These sit alongside the originals above; they don't replace them. [REFERENCES.md](REFERENCES.md) lists each reference and what was (and wasn't) inspected. **None of the reference tracks were listened to;** the variants follow their titles, descriptions and tags only.
+
+| File | Guided by | Use it for | Main controls |
+|---|---|---|---|
+| `cues/04-beginning-folk.js` | "Beginning": organic indie folk, morning | 1 waking / dog greeting, 2 breakfast (an alternative to 01-warmth) | `PULSE` brush level, `DENSITY` motif |
+| `cues/05a-sad-ambient.js` | "Depression option 2": ambient piano | **Alternative A** for 9, crying in the bedroom: a slow pad and a few distant low piano notes | `SPARSE` (1 = pad only), `PAD` |
+| `cues/05b-sad-piano.js` | "Depression song" (Jurrivh): emotional solo piano | **Alternative B** for 9: a solo piano "song" with a broken-chord left hand and a simple falling right-hand line | `MELODY` (0 = left hand only), `TOUCH` |
+| `cues/06-end-folk.js` | "End": acoustic folk, upbeat, travel | 10 hug (`LIFT` near 0), 11 walking out (raise `LIFT`); an alternative to 03-reconnection | `LIFT` (adds stomp, clap and whistle line), `DENSITY` |
+
+**05a and 05b are alternatives: choose one, don't play both.**
+- **A** is atmosphere: no tune, lots of space, closest to the brief's "silence or sparse low notes".
+- **B** is a small piano piece that pulls the audience into Rick's feeling; it's more emotional and more noticeable.
+- **Silence is still an option for cue 9.**
+
+**The dog motif:** whole in 04, absent from both sad sketches, and back in 06, complete and ending on the home note.
+
+**Sounds:** the new variants use built-in synths, plus the CC0 folk harp (already used above) and the piano in 05a and 05b, so they add no new sample licenses.
+
+
 ## Auditioning a sketch
 
 1. Open https://strudel.cc/.

@@ -34,7 +34,7 @@
 <body>
 <header>
   <h1>Good Company: music sketches</h1>
-  <p>Early, editable Strudel sketches for the short film. Strudel plays them live in your browser from the code below, using recordings of real acoustic instruments (piano, cello, strings, folk harp, guitar, recorder). No pre-rendered audio. The first play downloads the samples; if the first notes are missing, stop and play again.</p>
+  <p>Early, editable Strudel sketches for the short film. Strudel plays them live in your browser from the code below, using recordings of real acoustic instruments (piano, cello, strings, folk harp, guitar, recorder) and its built-in synths. No pre-rendered audio. The first play downloads the samples; if the first notes are missing, stop and play again.</p>
 </header>
 <div class="cues" id="cues"></div>
 <div class="bar">
@@ -57,6 +57,14 @@
       notes: "The dog motif stays incomplete. Phone interruption (3) and the Zoom call (6) want silence or near-silence: DENSITY ≈ 0.1, STRAIN ≈ 0, or stop entirely." },
     { file: "cues/03-reconnection.js", name: "03 Reconnection", moods: "Door / hug, then “Let's walk” outside",
       notes: "Hug: LIFT near 0. Walking outside: raise LIFT toward 0.6. A modest lift, not a triumph. The crying scene (9) should be silence or a few low notes." },
+    { file: "cues/04-beginning-folk.js", name: "04 Beginning (folk)", moods: "Waking / dog greeting, breakfast; alternative to 01",
+      notes: "Guided by a folk reference track. Plucked chords, light brush (PULSE), full dog motif. Stop or thin out for the phone call (3)." },
+    { file: "cues/05a-sad-ambient.js", name: "05a Sad A (ambient)", moods: "Crying in the bedroom (9). Alternative A",
+      notes: "Pick 05a OR 05b, not both. A: slow pad and a few distant low piano notes, no tune. SPARSE = 1 leaves only the pad. Silence is still an option for this scene." },
+    { file: "cues/05b-sad-piano.js", name: "05b Sad B (piano)", moods: "Crying in the bedroom (9). Alternative B",
+      notes: "Pick 05a OR 05b, not both. B: a short solo piano piece, more melodic and emotional. MELODY = 0 keeps only the left hand. Silence is still an option." },
+    { file: "cues/06-end-folk.js", name: "06 End (folk)", moods: "Door / hug, then walking outside; alternative to 03",
+      notes: "Guided by an acoustic folk reference track. LIFT near 0 for the hug; raise it to add stomp, clap and a whistle line for the walk. The motif resolves home." },
   ];
   const el = document.getElementById("editor");
   // no-cache: revalidate with GitHub Pages so edited sketches show up immediately instead of after its 10-minute cache.
