@@ -39,6 +39,24 @@ These sit alongside the originals above; they don't replace them. [REFERENCES.md
 
 **Sounds:** the new variants use built-in synths, plus the CC0 folk harp (already used above) and the piano in 05a and 05b, so they add no new sample licenses.
 
+### Opening under dialogue
+
+`cues/07-opening-dialogue.js` (on the page: **"07 Opening (under dialogue)"**) is music for the start of the film. It should feel happy and positive at a relaxed tempo, and not distract, because the early scenes carry a lot of dialogue. It's a calmer alternative to 01 and 04 for cues 1 and 2.
+
+**How it's built:**
+- **No lead melody.** There's a soft pad (Fmaj7, Bbmaj7, Dm7, C, two cycles each), one low bass note per cycle, and a few off-beat plucks that play only notes from the chord.
+- **Tempo and register:** 76 BPM. Everything stays low and filtered so it sits under voices.
+- **The dog motif** shows up only now and then, quietly, on folk harp.
+
+**Audition controls:**
+- `PULSE`: 0 to 1, how many plucks play. Use 0 for the quietest bed under heavy dialogue: just pad and bass.
+- `WARMTH`: 0 to 1, brightness. Lower is darker and further behind the voices; raise it in moments without dialogue.
+- `MOTIF`: 0 to 1, how often the dog motif peeks through. 0 removes it.
+- `BPM`, `GAIN`: tempo and overall level.
+
+**For the phone call (cue 3), stop this cue.** It's a bed to sit under talk, not a feature.
+
+
 
 ## Auditioning a sketch
 
