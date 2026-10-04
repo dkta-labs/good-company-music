@@ -14,7 +14,7 @@ Everything is **code that Strudel plays live in your browser** using recordings 
 | `cues/02-strain.js` | Repetitive strain | 8 resume / job search; thinned out for 4 coffee and call aftermath, 5 "I'm sure it'll be fine" at the doorway |
 | `cues/03-reconnection.js` | Reconnection | 10 door, dog contact, hug (`LIFT` near 0); 11 "Let's walk", outside together (`LIFT` up to about 0.6) |
 
-**The through-line is a small dog motif on kalimba:** three rising notes (A C D in F major), then a short answer.
+**The through-line is a small dog motif on folk harp:** three rising notes (A C D in F major), then a short answer.
 - **Warmth:** the full motif, friendly.
 - **Strain:** only the first two notes, then nothing. It stays incomplete.
 - **Reconnection:** the full motif again, now ending on the home note. Aim for a modest lift, not a triumph.
@@ -33,7 +33,7 @@ The first time you play, the instrument samples download (a few MB), and the fir
 - `DENSITY`: 0 to 1, how many notes play. Lower it for more air under dialogue.
 - `GAIN`: overall volume.
 - `STRAIN` (strain sketch only): 0 to 1. Higher means a harder piano touch and louder, more insistent pizzicato.
-- `LIFT` (reconnection sketch only): 0 to 1. At 0 you get the hug: kalimba motif, piano, strings and cello. Raising it adds a nylon guitar pulse and an alto recorder counter-line.
+- `LIFT` (reconnection sketch only): 0 to 1. At 0 you get the hug: folk harp motif, piano, strings and cello. Raising it adds a nylon guitar pulse and an alto recorder counter-line.
 
 To mute one layer, put `//` in front of each of its lines inside `stack( … )`, or delete it.
 
@@ -59,10 +59,10 @@ These cues need little or no music. Decide on picture; don't fill them by defaul
 | Sound name | Instrument | Source |
 |---|---|---|
 | `piano` | Grand piano | Salamander Grand Piano by Alexander Holm (Strudel's default piano; reported CC-BY, so credit it) |
-| `kalimba`, `recorder_alto_sus` | Kalimba, baroque alto recorder | Versilian Community Sample Library (VCSL), CC0 |
+| `folkharp`, `recorder_alto_sus` | Folk harp, baroque alto recorder | Versilian Community Sample Library (VCSL), CC0 |
 | `gm_cello`, `gm_pizzicato_strings`, `gm_string_ensemble_1`, `gm_acoustic_guitar_nylon` | Cello, pizzicato strings, string ensemble, nylon guitar | General MIDI soundfonts bundled with Strudel (WebAudioFont collection); licenses vary by font, so check before final use |
 
-Strudel's other recorded instruments include folk harp (`folkharp`), soft vibraphone (`vibraphone_soft`), glockenspiel, harmonica (`harmonica_soft`) and more recorders, all from VCSL, plus many `gm_*` instruments (violin, viola, flute, clarinet, oboe, French horn, orchestral harp…). Swap any `.s("…")` name to try one.
+Strudel's other recorded instruments include kalimba, soft vibraphone (`vibraphone_soft`), glockenspiel, harmonica (`harmonica_soft`) and more recorders, all from VCSL, plus many `gm_*` instruments (violin, viola, flute, clarinet, oboe, French horn, orchestral harp…). Swap any `.s("…")` name to try one.
 
 ## License
 

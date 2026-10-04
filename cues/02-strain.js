@@ -1,6 +1,6 @@
 // Good Company: sketch 02 "repetitive strain"
 // Moods: resume / job search (cue 8); thinned out for coffee-call aftermath and doorway doubt (cues 4, 5).
-// Instruments: piano ostinato, pizzicato strings, low cello, kalimba (the dog motif, left unfinished).
+// Instruments: piano ostinato, pizzicato strings, low cello, folk harp (the dog motif, left unfinished).
 // Press Ctrl+Enter (Cmd+Enter on Mac) to play, Ctrl+. to stop. Samples take a moment to load the first time.
 
 // ---- controls: change a number, then press Ctrl+Enter again ----
@@ -26,5 +26,5 @@ stack(
 
   // dog motif left incomplete: only the first two notes, once every four cycles
   n("<[2 4 ~ ~] ~ ~ ~>").scale("F4:major")
-    .s("kalimba").room(0.5).gain(0.6),
+    .s("folkharp").room(0.5).gain(0.6),
 ).postgain(GAIN)

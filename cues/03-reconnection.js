@@ -1,6 +1,6 @@
 // Good Company: sketch 03 "reconnection"
 // Moods: door / dog contact / hug (cue 10), then "Let's walk" outside together (cue 11).
-// Instruments: piano, string ensemble, cello, kalimba (the dog motif), nylon guitar and recorder (with LIFT).
+// Instruments: piano, string ensemble, cello, folk harp (the dog motif), nylon guitar and recorder (with LIFT).
 // Press Ctrl+Enter (Cmd+Enter on Mac) to play, Ctrl+. to stop. Samples take a moment to load the first time.
 
 // ---- controls: change a number, then press Ctrl+Enter again ----
@@ -25,9 +25,9 @@ stack(
   n("<0 -1 -2 -4>").scale("F2:major")
     .s("gm_cello").attack(0.3).release(1).gain(0.5),
 
-  // dog motif on kalimba, complete, ending on the home note
+  // dog motif on folk harp, complete, ending on the home note
   n("<[2 4 5 ~] [4 2 0 ~]>").scale("F4:major")
-    .s("kalimba").degradeBy(1 - DENSITY)
+    .s("folkharp").degradeBy(1 - DENSITY)
     .room(0.4).gain(0.85),
 
   // nylon guitar walking pulse (silent when LIFT = 0)
