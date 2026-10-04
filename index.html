@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Good Company: music sketches</title>
+<!-- Official Strudel editor web component, pinned so the sketches keep sounding the same. -->
+<script src="https://unpkg.com/@strudel/repl@1.3.0"></script>
+<style>
+  :root { color-scheme: dark; --bg: #16161a; --panel: #1f1f25; --line: #33333d; --ink: #ecebf2; --muted: #a09fae; --accent: #f2b45c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  header { padding: 24px 28px 8px; }
+  h1 { margin: 0; font-size: 26px; }
+  header p { margin: 4px 0 0; color: var(--muted); max-width: 900px; }
+  .cues { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 28px; }
+  .cue { padding: 12px 16px; min-width: 240px; text-align: left; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; }
+  .cue b { display: block; font-size: 16px; }
+  .cue small { color: var(--muted); }
+  .cue.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 0 28px 12px; }
+  .bar button { padding: 10px 22px; border: 0; border-radius: 999px; font-weight: 700; font-size: 15px; cursor: pointer; }
+  #play { background: var(--accent); color: #1a1408; }
+  #stop { background: #3a3a46; color: var(--ink); }
+  .hint { color: var(--muted); font-size: 14px; }
+  #notes { margin: 0 28px 12px; padding: 12px 16px; background: var(--panel); border-left: 3px solid var(--accent); border-radius: 6px; color: var(--muted); }
+  /* @strudel/repl renders its editor into a <div> placed right after <strudel-editor>. */
+  strudel-editor { display: none; }
+  strudel-editor + div { margin: 0 28px; height: 62vh; min-height: 420px; overflow: auto; border: 1px solid var(--line); border-radius: 10px; background: #111114; }
+  footer { padding: 18px 28px 32px; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Good Company: music sketches</h1>
+  <p>Early, editable Strudel sketches for the short film. Strudel synthesizes the sound live in your browser from the code below using built-in synths. No samples and no pre-rendered audio.</p>
+</header>
+<div class="cues" id="cues"></div>
+<div class="bar">
+  <button id="play">Play / update</button>
+  <button id="stop">Stop</button>
+  <span class="hint">Edit any number in the controls block, then press Play / update (or Ctrl+Enter / Cmd+Enter in the editor). Ctrl+. stops.</span>
+</div>
+<div id="notes"></div>
+<strudel-editor id="editor"><!--
+// loading…
+--></strudel-editor>
+<footer>
+  Made with <a href="https://strudel.cc/">Strudel</a> (AGPL-3.0). Code: <a href="https://github.com/dkta-labs/good-company-music">github.com/dkta-labs/good-company-music</a>. Nothing here is final or locked to picture.
+</footer>
+<script type="module">
+  const CUES = [
+    { file: "cues/01-warmth.js", name: "01 Warmth", moods: "Waking / dog greeting, breakfast, dog joins the couch",
+      notes: "Full dog motif, friendly. Lower DENSITY for more air under dialogue." },
+    { file: "cues/02-strain.js", name: "02 Repetitive strain", moods: "Resume / job search; thinned for the call aftermath and doorway",
+      notes: "The dog motif stays incomplete. Phone interruption (3) and the Zoom call (6) want silence or near-silence: DENSITY ≈ 0.1, STRAIN ≈ 0, or stop entirely." },
+    { file: "cues/03-reconnection.js", name: "03 Reconnection", moods: "Door / hug, then “Let's walk” outside",
+      notes: "Hug: LIFT near 0. Walking outside: raise LIFT toward 0.6. A modest lift, not a triumph. The crying scene (9) should be silence or a few low notes." },
+  ];
+  const el = document.getElementById("editor");
+  const sources = await Promise.all(CUES.map((c) => fetch(c.file).then((r) => r.text())));
+  let current = 0;
+  let playing = false;
+
+  // The component creates its editor asynchronously; wait until it exists.
+  const mirror = await new Promise((resolve) => {
+    const check = () => (el.editor ? resolve(el.editor) : setTimeout(check, 50));
+    check();
+  });
+
+  function select(i) {
+    current = i;
+    mirror.setCode(sources[i]);
+    document.getElementById("notes").textContent = `${CUES[i].moods}. ${CUES[i].notes}`;
+    document.querySelectorAll(".cue").forEach((b, j) => b.classList.toggle("on", j === i));
+    if (playing) mirror.evaluate();
+  }
+
+  document.getElementById("cues").innerHTML = CUES.map((c, i) =>
+    `<button class="cue" data-i="${i}"><b>${c.name}</b><small>${c.moods}</small></button>`).join("");
+  document.querySelectorAll(".cue").forEach((b) => (b.onclick = () => select(Number(b.dataset.i))));
+  document.getElementById("play").onclick = () => { playing = true; mirror.evaluate(); };
+  document.getElementById("stop").onclick = () => { playing = false; mirror.stop(); };
+  select(0);
+</script>
+</body>
+</html>
