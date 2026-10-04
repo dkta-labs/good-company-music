@@ -59,7 +59,8 @@
       notes: "Hug: LIFT near 0. Walking outside: raise LIFT toward 0.6. A modest lift, not a triumph. The crying scene (9) should be silence or a few low notes." },
   ];
   const el = document.getElementById("editor");
-  const sources = await Promise.all(CUES.map((c) => fetch(c.file).then((r) => r.text())));
+  // no-cache: revalidate with GitHub Pages so edited sketches show up immediately instead of after its 10-minute cache.
+  const sources = await Promise.all(CUES.map((c) => fetch(c.file, { cache: "no-cache" }).then((r) => r.text())));
   let current = 0;
   let playing = false;
 
